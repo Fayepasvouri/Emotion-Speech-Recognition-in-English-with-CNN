@@ -15,11 +15,13 @@ from sklearn.metrics import confusion_matrix
 import IPython.display as ipd  # To play sound in the notebook
 import os
 import sys
+
 import warnings
 # ignore warnings 
 if not sys.warnoptions:
     warnings.simplefilter("ignore")
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
+
 
 TESS="C:/Users/Faye/Desktop/Master/RAVDESS/TESS_Toronto_emotional_speech_set_data/"
 RAV="C:/Users/Faye/Desktop/Master/data/"
@@ -217,15 +219,6 @@ df = pd.concat([SAVEE_df, RAV_df, TESS_df, CREMA_df], axis = 0)
 print(df.labels.value_counts())
 df.head()
 df.to_csv("Data_path.csv",index=False)
-
-import librosa
-import librosa.display
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.pyplot import specgram
-import pandas as pd
-import os
-import IPython.display as ipd  # To play sound in the notebook
 
 path = "C:/Users/Faye/Desktop/Master/data/Actor_08/03-02-01-01-01-01-08.wav"
 X, sample_rate = librosa.load(path, res_type='kaiser_fast',duration=2.5,sr=22050*2,offset=0.5)  
